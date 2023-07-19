@@ -1,12 +1,12 @@
 # VS Code extension using .NET WASI
 
-This is an example VS Code extension that uses the VS Code `wasm-wasi` host to run a .NET WASI WebAssembly module.
+This is an example VS Code extension that uses the [VS Code `wasm-wasi` host](https://code.visualstudio.com/blogs/2023/06/05/vscode-wasm-wasi) to run a .NET WASI WebAssembly module.
 
 ## Prerequisites
 
-* .NET 8 Preview 6
-* `dotnet workload install wasi-sdk`
-* Install the WASI SDK from <https://github.com/WebAssembly/wasi-sdk/releases>
+* .NET 8 Preview 6 or later
+* Install the (experimental!) dotnet wasi SDK: `dotnet workload install wasi-sdk`
+* Install the official WASI SDK from <https://github.com/WebAssembly/wasi-sdk/releases>
 * Set the `WASI_SDK_PATH` environment variable to point to the place where you put the WASI SDK
 
 ## Building
