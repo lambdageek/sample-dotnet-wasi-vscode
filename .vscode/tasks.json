@@ -1,0 +1,15 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "build",
+			"path": "vscode",
+			"group": "build",
+			"problemMatcher": [],
+			// doesn't work unless WASI_SDK_PATH is set
+			"label": "npm: build - vscode",
+			"detail": "npm run compile:ts && npm run build:dotnet"
+		}
+	]
+}
