@@ -5,7 +5,7 @@ This is an example VS Code extension that uses the [VS Code `wasm-wasi` host](ht
 ## Prerequisites
 
 * .NET 8 Preview 6 or later
-* Install the (experimental!) dotnet wasi SDK: `dotnet workload install wasi-sdk`
+* Install the (experimental!) dotnet wasi workload: `dotnet workload install wasi-experimental`
 * Install the official WASI SDK from <https://github.com/WebAssembly/wasi-sdk/releases>
 * Set the `WASI_SDK_PATH` environment variable to point to the place where you put the WASI SDK
 
