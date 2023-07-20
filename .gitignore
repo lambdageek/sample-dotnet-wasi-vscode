@@ -480,3 +480,5 @@ $RECYCLE.BIN/
 *.swp
 
 vscode/out/
+vscode/dist/
+vscode/.vscode-test-web/

@@ -7,7 +7,9 @@
     <WasmSingleFileBundle>true</WasmSingleFileBundle>
   </PropertyGroup>
 
-  <Target Name="CopyWasiModuleToExtensionPath" AfterTargets="_WasiGenerateAppBundle">
+  <Target Name="CopyWasiModuleToExtensionPath" AfterTargets="_WasiGenerateAppBundle"
+    Condition="'$(ExampleWasmPublishPath)' != ''"
+  >
     <PropertyGroup>
       <ExpectedWasiModule>$(WasmAppDir)$(MSBuildProjectName).wasm</ExpectedWasiModule>
       <ExampleWasmPublishFullPath>$([MSBuild]::NormalizePath('$(ExampleWasmPublishPath)'))</ExampleWasmPublishFullPath>

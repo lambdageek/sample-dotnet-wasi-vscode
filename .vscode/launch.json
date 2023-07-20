@@ -6,16 +6,15 @@
     "configurations": [
         {
             "args": [
-                "--extensionDevelopmentPath=${workspaceFolder}/vscode"
+                "--extensionDevelopmentPath=${workspaceFolder}"
             ],
-            "name": "Launch Extension",
+            "name": "Launch Desktop Extension",
             "outFiles": [
-                "${workspaceFolder}/vscode/out/**/*.js"
+                "${workspaceFolder}/out/**/*.js"
             ],
-            //"preLaunchTask": "npm",
+            "preLaunchTask": "npm: build - vscode",
             "request": "launch",
             "type": "extensionHost"
-        }
-
+        },
     ]
 }

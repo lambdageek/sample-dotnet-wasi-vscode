@@ -9,9 +9,12 @@
 	"engines": {
 		"vscode": "^1.67.0"
 	},
-	"main": "./out/extension.js",
+	"main": "./dist/desktop/extension.js",
+	"browser": "./dist/web/extension.js",
 	"activationEvents": [
-		"*"
+	],
+	"extensionDependencies": [
+		"ms-vscode.wasm-wasi-core"
 	],
 	"contributes": {
 		"commands": [
@@ -23,13 +26,14 @@
 		]
 	},
 	"scripts": {
-		"clean": "node ./node_modules/rimraf/bin.js out ../dotnet-wasi-hello/bin ../dotnet-wasi-hello/obj",
-		"compile:ts": "node ./node_modules/typescript/lib/tsc.js -b tsconfig.json",
-		"watch:ts": "node ./node_modules/typescript/lib/tsc.js -b tsconfig.json -w",
-		"build": "npm run compile:ts && npm run build:dotnet",
-		"build:dotnet": "./node_modules/.bin/make-dir ./out && dotnet publish -c Release ../dotnet-wasi-hello/dotnet-wasi-hello.csproj -bl -p:ExampleWasmPublishPath=$PWD/out"
+		"clean": "node ./node_modules/rimraf/bin.js dist out ../dotnet-wasi-hello/bin ../dotnet-wasi-hello/obj",
+		"compile:ts": "tsc -p tsconfig.json --noEmit",
+		"build": "npm run compile:ts && npm run build:dotnet && npm run build:esbuild",
+		"build:dotnet": "./node_modules/.bin/make-dir ./dist && dotnet publish -c Release ../dotnet-wasi-hello/dotnet-wasi-hello.csproj -bl -p:ExampleWasmPublishPath=$PWD/dist",
+		"build:esbuild": "node ./script/esbuild.js",
+		"test-browser":  "vscode-test-web --coi --extensionId ms-vscode.wasm-wasi-core@prerelease --extensionDevelopmentPath=. ."
 	},
-    	"dependencies": {
+	"dependencies": {
 		"vscode-uri": "^3.0.3",
 		"@vscode/wasm-wasi": "^0.13.0-pre.1"
 	},

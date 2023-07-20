@@ -17,7 +17,7 @@ This is an example VS Code extension that uses the [VS Code `wasm-wasi` host](ht
 % npm run build
 ```
 
-## Running
+## Running the Desktop Extension
 
 1. Open this folder in VS Code
 2. Press "F5" with the "Launch Extension" configuration
@@ -26,3 +26,16 @@ This is an example VS Code extension that uses the [VS Code `wasm-wasi` host](ht
 A console should pop up with a message:
 
 ![screenshot Hello, Wasi Console](assets/HelloWasiConsole.png)
+
+## Runnning the Web Extension
+
+```console
+% cd vscode
+% npm run test-browser
+```
+
+A browser window will open with a local instance of VS Code for the Web. press Ctrl-Shift-P and run `wasm: run .NET WASI Program`
+
+A console should pop up with a message:
+
+![screenshot Hello, Wasi Console in a browser](assets/HelloWasiConsole-web.png)
