@@ -482,3 +482,4 @@ $RECYCLE.BIN/
 vscode/out/
 vscode/dist/
 vscode/.vscode-test-web/
+*.vsix

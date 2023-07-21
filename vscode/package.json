@@ -7,12 +7,11 @@
 	"author": "MS",
 	"license": "MIT",
 	"engines": {
-		"vscode": "^1.67.0"
+		"vscode": "^1.71.0"
 	},
 	"main": "./dist/desktop/extension.js",
 	"browser": "./dist/web/extension.js",
-	"activationEvents": [
-	],
+	"activationEvents": [],
 	"extensionDependencies": [
 		"ms-vscode.wasm-wasi-core"
 	],
@@ -31,37 +30,38 @@
 		"build": "npm run compile:ts && npm run build:dotnet && npm run build:esbuild",
 		"build:dotnet": "./node_modules/.bin/make-dir ./dist && dotnet publish -c Release ../dotnet-wasi-hello/dotnet-wasi-hello.csproj -bl -p:ExampleWasmPublishPath=$PWD/dist",
 		"build:esbuild": "node ./script/esbuild.js",
-		"test-browser":  "vscode-test-web --coi --extensionId ms-vscode.wasm-wasi-core@prerelease --extensionDevelopmentPath=. ."
+		"test-browser": "vscode-test-web --coi --extensionId ms-vscode.wasm-wasi-core@prerelease --extensionDevelopmentPath=. ."
 	},
 	"dependencies": {
-		"vscode-uri": "^3.0.3",
-		"@vscode/wasm-wasi": "^0.13.0-pre.1"
+		"@vscode/wasm-wasi": "^0.13.0-pre.1",
+		"vscode-uri": "^3.0.3"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.71.0",
 		"@types/assert": "^1.5.6",
+		"@types/glob": "^8.1.0",
+		"@types/mocha": "^9.1.1",
 		"@types/node": "^18.14.6",
+		"@types/path-browserify": "^1.0.0",
+		"@types/vscode": "^1.71.0",
 		"@typescript-eslint/eslint-plugin": "^5.35.1",
 		"@typescript-eslint/parser": "^5.35.1",
-		"esbuild": "^0.17.14",
-		"eslint": "^8.22.0",
-		"http-server": "^14.1.1",
-		"make-dir-cli": "^3.0.0",
-		"@types/mocha": "^9.1.1",
-		"mocha": "^10.0.0",
-		"node-polyfill-webpack-plugin": "^2.0.1",
-		"playwright": "^1.33.0",
-		"rimraf": "^3.0.2",
-		"shelljs": "^0.8.5",
-		"shx": "^0.3.4",
-		"@vscode/tsconfig-gen": "0.1.0",
-		"typescript": "^5.0.4",
-		"serve": "^14.2.0",
-		"@types/path-browserify": "^1.0.0",
-		"path-browserify": "^1.0.1",
 		"@vscode/test-electron": "^2.3.0",
 		"@vscode/test-web": "^0.0.43",
-		"@types/glob": "^8.1.0",
-		"glob": "^9.3.1"
+		"@vscode/tsconfig-gen": "0.1.0",
+		"@vscode/vsce": "^2.19.0",
+		"esbuild": "^0.17.14",
+		"eslint": "^8.22.0",
+		"glob": "^9.3.1",
+		"http-server": "^14.1.1",
+		"make-dir-cli": "^3.0.0",
+		"mocha": "^10.0.0",
+		"node-polyfill-webpack-plugin": "^2.0.1",
+		"path-browserify": "^1.0.1",
+		"playwright": "^1.33.0",
+		"rimraf": "^3.0.2",
+		"serve": "^14.2.0",
+		"shelljs": "^0.8.5",
+		"shx": "^0.3.4",
+		"typescript": "^5.0.4"
 	}
 }
