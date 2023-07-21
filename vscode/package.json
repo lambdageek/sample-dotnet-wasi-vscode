@@ -30,7 +30,8 @@
 		"build": "npm run compile:ts && npm run build:dotnet && npm run build:esbuild",
 		"build:dotnet": "./node_modules/.bin/make-dir ./dist && dotnet publish -c Release ../dotnet-wasi-hello/dotnet-wasi-hello.csproj -bl -p:ExampleWasmPublishPath=$PWD/dist",
 		"build:esbuild": "node ./script/esbuild.js",
-		"test-browser": "vscode-test-web --coi --extensionId ms-vscode.wasm-wasi-core@prerelease --extensionDevelopmentPath=. ."
+		"test-browser": "vscode-test-web --coi --extensionId ms-vscode.wasm-wasi-core@prerelease --extensionDevelopmentPath=. .",
+		"package": "vsce package --pre-release"	
 	},
 	"dependencies": {
 		"@vscode/wasm-wasi": "^0.13.0-pre.1",
