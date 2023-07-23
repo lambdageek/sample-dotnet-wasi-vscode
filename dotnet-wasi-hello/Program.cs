@@ -1,3 +1,4 @@
 using System;
+using System.Runtime.InteropServices;
 
-Console.WriteLine("Hello, Wasi Console!");
+Console.WriteLine($"Hello, {RuntimeInformation.RuntimeIdentifier} {RuntimeInformation.OSArchitecture}!");
