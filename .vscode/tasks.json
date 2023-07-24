@@ -12,7 +12,7 @@
 			"options": {
 				"env": {
 					// doesn't work unless WASI_SDK_PATH is set
-					"WASI_SDK_PATH": "${userHome}/bin/wasi-sdk-20.0"
+					// "WASI_SDK_PATH": "${userHome}/bin/wasi-sdk-20.0"
 				}	
 			},
 		},

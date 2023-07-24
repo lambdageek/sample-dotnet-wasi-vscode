@@ -1,0 +1,31 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/dotnet
+{
+	"name": "sample-dotnet-wasi-vscode",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/base:bullseye",
+	"features": {
+		"ghcr.io/devcontainers/features/dotnet:1": {
+			"version" : "8.0.100-preview.6.23330.14",
+			"installUsingApt": false
+		},
+    	"ghcr.io/devcontainers/features/node:1": {}
+		// "devwasm.azurecr.io/dev-wasm/dev-wasm-feature/wasmtime-wasi:0": {}
+		,"ghcr.io/wxw-matt/devcontainer-features/command_runner:latest": {
+			"command1": "wget https://github.com/WebAssembly/wasi-sdk/releases/download/wasi-sdk-20/wasi-sdk_20.0_amd64.deb",
+			"command2": "sudo apt install ./wasi-sdk_20.0_amd64.deb",
+			"command3": "rm ./wasi-sdk_20.0_amd64.deb"
+        }
+	}
+	,"containerEnv": { "WASI_SDK_PATH": "/opt/wasi-sdk" }
+	, "customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.wasm-wasi-core"
+			]
+		}
+	}
+	,"postCreateCommand": "dotnet workload install wasi-experimental"
+
+	,"remoteUser": "vscode"
+}
